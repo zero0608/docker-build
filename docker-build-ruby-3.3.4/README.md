@@ -1,7 +1,7 @@
 
 
 
-# Commands
+# Commands how to run
 
 build:
 
