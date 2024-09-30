@@ -6,14 +6,9 @@ pipelines:
         clone:
           enabled: false
         script:
-          # Cài đặt SSH client để sử dụng SSH key
-          - apk add openssh
-          - eval $(ssh-agent -s)
-          - ssh-add /opt/atlassian/pipelines/agent/ssh/id_rsa
-
-          # Clone repo Bitbucket dưới dạng "bare" để đẩy mọi nhánh, tags, refs
-          - git clone --bare git@bitbucket.org:zero0608/docker-build.git
+         
+          # Clone all bit
+          - git clone --bare git@bitbucket.org:tadinhdong/docker-build.git
           - cd docker-build.git
-
-          # Push toàn bộ mọi nhánh, tags và refs sang GitHub
+          # Push all into GitHub
           - git push --mirror git@github.com:zero0608/docker-build.git
